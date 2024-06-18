@@ -8,4 +8,4 @@ if __name__ == '__main__':
         """
         function to update a record
         """
-        mongo_collection.update({"name": name}, {"$set": {"topics": topics}})
+        mongo_collection.updateMany({"name": name}, {"$set": {"topics": topics}})
