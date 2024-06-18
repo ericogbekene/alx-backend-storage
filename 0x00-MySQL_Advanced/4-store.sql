@@ -6,11 +6,11 @@
 --SET NEW.items.quantity = NEW.items.quantity - 1;
 --END
 --TRIGGER TO UPDATE ITEMS
-DELIMETER $$;
+DELIMETER $$
 CREATE TRIGGER decrease_trigger AFTER INSERT ON orders
 BEGIN
-UPDATE items SET (quantity = quantity - NEW.number)
+UPDATE items SET quantity = quantity - NEW.number
 
 END;
 
-DELIMITER ;
+DELIMETER 
