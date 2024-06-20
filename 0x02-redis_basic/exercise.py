@@ -6,7 +6,7 @@ module to setup a python redis connection
 
 import redis
 import uuid
-from typing import Union, Optional
+from typing import Union, Optional, Callable
 
 
 class Cache:
@@ -28,7 +28,7 @@ class Cache:
         self._redis.set(random_key, data)
         return random_key
 
-    def get(self, key: str, fn: Optional[callable]):
+    def get(self, key: str, fn: Optional[Callable]):
         """
         method to return utf exuivalent option from cache
         """
@@ -37,13 +37,13 @@ class Cache:
             if fn:
                 return fn(value)
 
-    def get_str(self, key:bytes) -> str:
+    def get_str(self, key: str) -> str:
         """
         to return a str
         """
         return self.get(key, lambda x: x.decode("utf-8"))
-    
-    def get_int(self, key:bytes) -> int:
+
+    def get_int(self, key: str) -> int:
         """
         this will return and int from bytes
         """
