@@ -3,7 +3,7 @@
 update a record
 """
 
-if __name__ == "__main__"
+if __name__ == "__main__":
     def update_topics(mongo_collection, name, topics):
         """
         function to update a record
